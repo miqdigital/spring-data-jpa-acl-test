@@ -3,17 +3,19 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
 	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.1.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
-		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
 	<import resource="classpath:authorization-config.xml" />
 	<import resource="classpath:security-config.xml" />
 
 	<context:component-scan
-		base-package="com.mediaiqdigital.spring.acl.jpa.test.service.impl"></context:component-scan>
+		base-package="com.mediaiqdigital.spring.acl.jpa.expression,com.mediaiqdigital.spring.acl.jpa.test.service.impl,com.mediaiqdigital.spring.acl.jpa.test.acl.advice"></context:component-scan>
 
 	<jpa:repositories base-package="com.mediaiqdigital.spring.acl.jpa.test.repo"
 		entity-manager-factory-ref="entityManagerFactory"
@@ -45,5 +47,20 @@
 		<property name="username" value="root" />
 		<property name="password" value="root" />
 	</bean>
+
+
+	<!-- <aop:config proxy-target-class="true">
+		<aop:pointcut id="aclCreatePointcut"
+			expression="@annotation(com.mediaiqdigital.spring.acl.jpa.test.acl.advice.CreateAcl)" />
+		<aop:advisor pointcut-ref="aclCreatePointcut" advice-ref="aclCreateAdvice"
+			order="-1" />
+	</aop:config> -->
+	
+	<!-- <aop:config proxy-target-class="true">
+		<aop:pointcut id="aclCreatePointcut"
+			expression="@annotation(com.mediaiqdigital.spring.acl.jpa.test.acl.advice.CreateAcl)" />
+		<aop:advisor pointcut-ref="aclCreatePointcut" advice-ref="aclCreateAroundAdvice"
+			order="-1" />
+	</aop:config> -->
 
 </beans>

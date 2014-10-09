@@ -19,6 +19,7 @@ public class BaseTest {
 	public void setup() {
 		ArrayList<SimpleGrantedAuthority> authorities = new ArrayList<SimpleGrantedAuthority>();
 		authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+		authorities.add(new SimpleGrantedAuthority("ROLE_COMPANY_MIQ"));
 
 		Authentication authRequest = new UsernamePasswordAuthenticationToken(
 				"sowdri@mediaiqdigital.com", "password", authorities);

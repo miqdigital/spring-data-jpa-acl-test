@@ -5,6 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
+import com.mediaiqdigital.spring.acl.jpa.test.acl.advice.CreateAcl;
 import com.mediaiqdigital.spring.acl.jpa.test.domain.Customer;
 import com.mediaiqdigital.spring.acl.jpa.test.repo.CustomerDao;
 import com.mediaiqdigital.spring.acl.jpa.test.service.CustomerService;
@@ -34,7 +35,8 @@ public class CustomerServiceImpl extends
 	}
 
 	@Override
-	@PreAuthorize("hasPermission(#customer,'WRITE')")
+	@CreateAcl(type = Customer.class)
+	@PreAuthorize("@securityExpression.isNew(#customer) || hasPermission(#customer,'WRITE')")
 	public Customer save(Customer customer) {
 		return super.save(customer);
 	}

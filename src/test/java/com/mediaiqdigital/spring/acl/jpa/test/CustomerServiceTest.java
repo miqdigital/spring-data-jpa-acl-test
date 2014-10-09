@@ -13,8 +13,12 @@ public class CustomerServiceTest extends BaseTest {
 
 	@Test
 	public void testName() throws Exception {
-		Customer customer = customerService.getById(4L);
+		Customer customer = customerService.getById(12L);
 		System.out.println(customer);
 	}
 
+	@Test
+	public void create() throws Exception {
+		customerService.save(new Customer("Sachin", "Tendulkar"));
+	}
 }

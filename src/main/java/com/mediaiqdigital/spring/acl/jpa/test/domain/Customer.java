@@ -1,18 +1,12 @@
 package com.mediaiqdigital.spring.acl.jpa.test.domain;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "customer", schema = "hotel")
-public class Customer {
+public class Customer extends Base {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
 	private String firstName;
 	private String lastName;
 
@@ -21,8 +15,7 @@ public class Customer {
 	}
 
 	public Customer(long id) {
-		super();
-		this.id = id;
+		super(id);
 	}
 
 	public Customer(String firstName, String lastName) {
@@ -32,18 +25,9 @@ public class Customer {
 	}
 
 	public Customer(Long id, String firstName, String lastName) {
-		super();
-		this.id = id;
+		super(id);
 		this.firstName = firstName;
 		this.lastName = lastName;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getFirstName() {
@@ -64,8 +48,8 @@ public class Customer {
 
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", firstName=" + firstName
-				+ ", lastName=" + lastName + "]";
+		return "Customer [firstName=" + firstName + ", lastName=" + lastName
+				+ ", getId()=" + getId() + "]";
 	}
 
 }
