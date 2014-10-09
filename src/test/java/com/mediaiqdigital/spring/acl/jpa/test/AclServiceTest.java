@@ -21,6 +21,7 @@ public class AclServiceTest extends BaseTest {
 
 	@Test
 	public void insertSid() throws Exception {
+		System.out.println(Customer.class.getName());
 	}
 
 	@Test

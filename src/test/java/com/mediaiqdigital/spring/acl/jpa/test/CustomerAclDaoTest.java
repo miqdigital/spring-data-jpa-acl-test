@@ -9,7 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
 import com.mediaiqdigital.spring.acl.jpa.test.domain.Customer;
-import com.mediaiqdigital.spring.acl.jpa.test.predicate.SelectionPredicate;
+import com.mediaiqdigital.spring.acl.jpa.test.predicate.CustomerAclPredicate;
 import com.mediaiqdigital.spring.acl.jpa.test.repo.CustomerAclDao;
 
 public class CustomerAclDaoTest extends BaseTest {
@@ -25,8 +25,9 @@ public class CustomerAclDaoTest extends BaseTest {
 				add("prabhu@mediaiqdigital.com");
 			}
 		};
-		Page<Customer> list = customerDao.findAll(SelectionPredicate
-				.viewableSomeObjects(sids), new PageRequest(1, 1));
+		Page<Customer> list = customerDao.findAll(
+				new CustomerAclPredicate().viewableFor(sids),
+				new PageRequest(1, 1));
 		System.out.println(list.getContent());
 	}
 
