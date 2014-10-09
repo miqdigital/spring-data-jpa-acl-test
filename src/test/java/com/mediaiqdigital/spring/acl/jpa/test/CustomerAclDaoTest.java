@@ -25,9 +25,8 @@ public class CustomerAclDaoTest extends BaseTest {
 				add("prabhu@mediaiqdigital.com");
 			}
 		};
-		Page<Customer> list = customerDao.findAll(
-				new CustomerAclPredicate().viewableFor(sids),
-				new PageRequest(1, 1));
+		Page<Customer> list = customerDao.findAll(new CustomerAclPredicate()
+				.viewableFor(sids), new PageRequest(0, 10));
 		System.out.println(list.getContent());
 	}
 
