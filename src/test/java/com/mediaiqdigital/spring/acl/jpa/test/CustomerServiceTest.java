@@ -21,4 +21,9 @@ public class CustomerServiceTest extends BaseTest {
 	public void create() throws Exception {
 		customerService.save(new Customer("Sachin", "Tendulkar"));
 	}
+
+	@Test
+	public void update() throws Exception {
+		customerService.save(new Customer(12L, "Sachin", "Tendulkar"));
+	}
 }
