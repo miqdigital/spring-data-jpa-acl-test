@@ -3,12 +3,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.mediaiqdigital</groupId>
-	<artifactId>spring-acl-jpa-test</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<groupId>io.github.mediaiq</groupId>
+	<artifactId>spring-data-jpa-acl-test</artifactId>
+	<version>1.0</version>
 	<packaging>jar</packaging>
 
-	<name>spring-acl-jpa-test</name>
+	<name>spring-data-jpa-acl-test</name>
 	<description>Project to test spring-acl-jpa</description>
 
 	<parent>
@@ -24,8 +24,8 @@
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.mediaiqdigital</groupId>
-			<artifactId>spring-acl-jpa</artifactId>
+			<groupId>io.github.mediaiq</groupId>
+			<artifactId>spring-data-jpa-acl</artifactId>
 			<version>1.0</version>
 		</dependency>
 		<dependency>
